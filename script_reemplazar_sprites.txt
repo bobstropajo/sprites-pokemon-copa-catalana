@@ -11,7 +11,7 @@
 
 
 // la frecuencia a la que se ejecuta la comprobación de imágenes. Depende del ordenador puede hacer falta aumentarla
-const interval = 5;
+const interval = 0.3;
 
 // reemplazamos la url del showdown con la nuestra propia
 const urlShowdown = 'https://play.pokemonshowdown.com/';
