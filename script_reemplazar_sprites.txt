@@ -4,14 +4,15 @@
 // @match       https://replay.pokemonshowdown.com/*
 // @match       https://play.pokemonshowdown.com/*
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      Ricardo G
-// @description Reemplaza 3/4/2025, 19:07:41
+// @description 3/4/2025
 // ==/UserScript==
 
 
-// la frecuencia a la que se ejecuta la comprobación de imágenes. Depende del ordenador puede hacer falta aumentarla
-const interval = 0.3;
+// La frecuencia a la que se ejecuta la comprobación de imágenes.
+// frecuencias más pequeñas son más responsive, pero pueden causar problemas de rendimiento. 2 segundos está bien
+const interval = 2;
 
 // reemplazamos la url del showdown con la nuestra propia
 const urlShowdown = 'https://play.pokemonshowdown.com/';
