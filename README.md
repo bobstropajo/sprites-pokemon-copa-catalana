@@ -1,5 +1,5 @@
 # sprites-pokemon-copa-catalana
-Repositorio para almacenar los sprites custom de la Copa Catalana a fin de reemplazarlos en POkemon Showdown mediante un script.
+Repositorio para almacenar los sprites custom de la Copa Catalana a fin de reemplazarlos en Pokemon Showdown mediante un script.
 
 ### Usar el script
 Puedes habilitar el script en tu navegador usando la extensión de Violentmonkey o similares (Tampermonkey, Greasemonkey, etc). 
