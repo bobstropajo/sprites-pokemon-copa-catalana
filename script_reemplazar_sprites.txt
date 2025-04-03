@@ -1,0 +1,61 @@
+// ==UserScript==
+// @name        Reemplaza sprites de pokemon en el Showdown por los de la Copa Catalana 2025
+// @namespace   Violentmonkey Scripts
+// @match       https://replay.pokemonshowdown.com/*
+// @match       https://play.pokemonshowdown.com/*
+// @grant       none
+// @version     1.0
+// @author      Ricardo G
+// @description Reemplaza 3/4/2025, 19:07:41
+// ==/UserScript==
+
+
+// la frecuencia a la que se ejecuta la comprobación de imágenes. Depende del ordenador puede hacer falta aumentarla
+const interval = 5;
+
+// reemplazamos la url del showdown con la nuestra propia
+const urlShowdown = 'https://play.pokemonshowdown.com/';
+const urlPropia = 'https://raw.githubusercontent.com/Rg879/sprites-pokemon-copa-catalana/main/';
+
+// imagenes no reemplazables no se vuelven a comprobar
+const listaImagenesNoReemplazables = new Set();
+
+// si la url existe es que tenemos sprite a modificar, si no lo añadimos al Set para no volver a comprobarlo
+function doesImageExist(img, url) {
+
+  let urlOriginal = img.src
+
+  new Promise(() => {
+    fetch(url).then(
+      (res) => {
+        console.log(res);
+        if(res.status === 404){
+          listaImagenesNoReemplazables.add(urlOriginal)
+        } else {
+          console.log('vamos a cambiar url')
+          img.src = url
+        }
+      }
+    ).catch(
+      (e) => {
+        console.log("Impossible to load image", e)
+        listaImagenesNoReemplazables.add(url)
+      }
+    )
+  })
+};
+
+// va revisando todas las imagenes de la web
+function imgReplace() {
+    let images = document.getElementsByTagName('img'),
+        len = images.length, img, i;
+    for (i = 0; i < len; i += 1) {
+        img = images[i];
+      if(!listaImagenesNoReemplazables.has(img.src) && img.src !== null &&
+         img.src.indexOf(urlShowdown) >= 0){
+        doesImageExist(img, img.src.replace(urlShowdown, urlPropia))
+      }
+    }
+};
+
+setInterval(imgReplace, interval * 1000);
