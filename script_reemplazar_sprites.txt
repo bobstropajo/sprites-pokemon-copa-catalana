@@ -15,7 +15,7 @@ const interval = 5;
 
 // reemplazamos la url del showdown con la nuestra propia
 const urlShowdown = 'https://play.pokemonshowdown.com/';
-const urlPropia = 'https://raw.githubusercontent.com/Rg879/sprites-pokemon-copa-catalana/main/';
+const urlPropia = 'https://raw.githubusercontent.com/Rg879/sprites-pokemon-copa-catalana/refs/heads/main/';
 
 // imagenes no reemplazables no se vuelven a comprobar
 const listaImagenesNoReemplazables = new Set();
