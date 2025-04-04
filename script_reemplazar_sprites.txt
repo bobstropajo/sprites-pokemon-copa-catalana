@@ -11,8 +11,8 @@
 
 
 // La frecuencia a la que se ejecuta la comprobación de imágenes.
-// frecuencias más pequeñas son más responsive, pero pueden causar problemas de rendimiento. 2 segundos está bien
-const interval = 2;
+// frecuencias más pequeñas son más responsive, pero pueden causar problemas de rendimiento. 1 segundo está bien
+const interval = 1;
 
 // reemplazamos la url del showdown con la nuestra propia
 const urlShowdown = 'https://play.pokemonshowdown.com/';
@@ -29,11 +29,9 @@ function doesImageExist(img, url) {
   new Promise(() => {
     fetch(url).then(
       (res) => {
-        console.log(res);
         if(res.status === 404){
           listaImagenesNoReemplazables.add(urlOriginal)
         } else {
-          console.log('vamos a cambiar url')
           img.src = url
         }
       }
